@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+}
+
+body {
+    background: rgb(34, 0, 27);
+    ;
+}
+
+:root {
+    --header-color: rgb(59, 0, 51);
+    --search-color: rgb(0, 0, 0);
+    --text-color: #fcfeff;
+    --text-regsiter: rgb(224, 13, 122);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.container {
+    max-width: 1360px;
+    margin: auto;
+    width: 100%;
+}
+
+.gradien {
+    background: linear-gradient(to right, rgb(98, 52, 177), rgb(4, 129, 190), rgb(0, 173, 93), rgb(221, 211, 45), rgb(209, 57, 62), rgb(235, 218, 227), rgb(98, 52, 177), rgb(4, 129, 190), rgb(0, 173, 93), rgb(221, 211, 45), rgb(209, 57, 62));
+    height: 5px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+}
+
+.search {
+    max-width: 240px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 0.7rem;
+    padding: 8px 15px;
+    background: var(--search-color);
+    border-radius: 4rem;
+    margin-right: 1rem;
+    height: fit-content;
+    margin-top: 10px;
+}
+
+.search .bx {
+    font-size: 1.1rem;
+    color: var(--text-color)
+}
+
+.bx {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo {
+    margin: 0 auto 0 0;
+}
+
+.search-box .bx:hover {
+    color: var(--search-color);
+
+}
+
+#search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    background: transparent;
+    font-size: 0.938rem;
+}
+
+.language {
+    display: flex;
+    background: rgb(186, 52, 105);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.language p {
+    margin: 8px 10px 15px 10px;
+    color: var(--text-color);
+
+}
+
+.user {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.right {
+    display: flex;
+    justify-content: end;
+}
+
+.navbar {
+    display: flex;
+    padding-top: 12px;
+}
+
+.nav-home {
+    display: flex;
+    background: rgb(224, 13, 122);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-right: 15px;
+}
+
+.nav-home .bx {
+    font-size: 1.8rem;
+    margin: auto;
+}
+
+.menu {
+    background: rgb(224, 13, 122);
+    border-radius: 30px;
+    height: 44px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.menu li {
+    display: inline;
+    padding: 10px;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.nav-home {
+    color: var(--text-color);
+}
+
+
+.menu li:hover {
+    background: rgb(241, 135, 32);
+}
+
+.menu .start:hover {
+    background: rgb(241, 135, 32);
+    border-radius: 30px 0 0 30px;
+}
+
+.menu .end:hover {
+    background: rgb(241, 135, 32);
+    border-radius: 0 30px 30px 0;
+}
+
+.bg-body {
+    height: 149px;
+    width: 100%;
+}
+
+.register-content {
+    background: #fcfeff;
+}
+
+.login {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.regsiter {
+    display: flex;
+    align-items: center;
+}
+
+.regsiter b {
+    color: var(--text-regsiter);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.call {
+    display: flex;
+    align-items: center;
+}
+
+.call b {
+    color: var(--text-regsiter);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.9rem;
+}
+
+.slide {
+    position: relative;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.select-movie {
+    display: flex;
+    justify-content: space-evenly;
+    background-image: url(https://cinestar.com.vn/catalog/view/theme/default/images/pattern.png);
+    position: relative;
+}
+
+.select-movie h2 {
+    text-transform: uppercase;
+    font-size: 28px;
+    color: var(--text-regsiter);
+    margin-top: 30px;
+    line-height: 1;
+    margin-left: 28px;
+}
+
+.ticket {
+    display: flex;
+    align-items: center;
+}
+.all-select {
+    display: flex;
+}
+
+.select-flim,
+.select-date,
+.select-cinema,
+.select-time {
+    display: block;
+    margin: 20px;
+    width: 230px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fcfeff;
+    background: rgb(70, 70, 70);
+    padding: 5px;
+}
+
+.select-flim {
+    border-radius: 0px 25px 25px 25px;
+}
+
+.select-date {
+    border-radius: 25px 25px 25px 0px;
+}
+
+.select-cinema {
+    border-radius: 25px 0px 25px 25px;
+}
+
+.select-time {
+    border-radius: 25px 25px 0px 25px;
+}
+
+.select-flim option {
+    font-size: 15px;
+}
+
+
+.select-movie .ticket {
+    position: absolute;
+    top: -20px;
+    left: 180px;
+}
+
+    </style>
+</head>
+<body th:fragment="header">
+<header>
+    <div class="gradien"></div>
+    <div class="nav container">
+        <a href="" class="logo"><img src="https://cinestar.com.vn/pictures/moi/9Logo/white-2018.png" alt=""></a>
+
+        <div class="rights">
+            <div class="right">
+                <div class="search">
+                    <input type="search" name="" id="search-input" placeholder="Search Movie">
+                    <i class='bx bx-search'></i>
+                </div>
+                <a href="#" class="language">
+                    <p>
+                        EN
+                    </p>
+                </a>
+                <a href="#" class="user">
+                    <img src="./image/user.jpg" alt="" class="user-img">
+                </a>
+            </div>
+
+            <div class="navbar">
+                <a href="#" class="nav-home"><i class='bx bx-home-heart'></i></a>
+                <div class="menu">
+                    <ul>
+                        <li class="start"><a href="./index.html" class="nav-link">Phim</a></li>
+                        <li><a href="/getphim/lichchieu" class="nav-link">Lịch chiếu</a></li>
+                        <li><a href="" class="nav-link">Rạp và giá</a></li>
+                        <li><a href="" class="nav-link">Khuyến mãi</a></li>
+                        <li><a href="" class="nav-link">Hỏi và đáp</a></li>
+                        <li><a href="" class="nav-link">Tin tức</a></li>
+                        <li><a href="" class="nav-link">Giới thiệu</a></li>
+                        <li class="end"><a href="" class="nav-link">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="register-content">
+    <img src="https://cinestar.com.vn/catalog/view/theme/default/images/setup-bg.jpg" alt="" class="bg-body">
+    <div class="login">
+        <div class="regsiter">
+            <img src="https://cinestar.com.vn/catalog/view/theme/default/images/icon-register.png" alt="">
+            <b>Đăng ký thành viên</b>
+            <img src="https://cinestar.com.vn/catalog/view/theme/default/images/icon-login.png" alt=""
+                 style="margin-left: 30px;">
+            <b>Đăng nhập</b>
+        </div>
+        <div class="call">
+            <img src="https://cinestar.com.vn/catalog/view/theme/default/images/icon-call.png" alt="">
+            <b>0123456789</b>
+        </div>
+    </div>
+</div>
+<!--image slider start-->
+<div class="slide">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img
+                    src="https://cinestar.com.vn/pictures/z2161740545178_a8a9f7496b64b022c7303a779f958fc3.jpg" alt="">
+            </div>
+            <div class="swiper-slide"><img
+                    src="https://cinestar.com.vn/pictures/z2161740548307_572fb6880f511449ec1b78168c547d3b.jpg" alt="">
+            </div>
+            <div class="swiper-slide"><img
+                    src="https://cinestar.com.vn/pictures/z2161740555387_88fc044837bea7695ee9ec8320a39cef.jpg" alt="">
+            </div>
+            <div class="swiper-slide"><img
+                    src="https://cinestar.com.vn/pictures/z2161740555616_cf6d683f88aa9447af57b89917e84acb.jpg" alt="">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+            var swiper = new Swiper(".mySwiper", {
+                autoplay: {
+                    delay: 2000, // số mili giây giữa mỗi lần chuyển slide
+                    disableOnInteraction: false,
+                },
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+    </script>
+</div>
+
+<div class="gradien" style="margin-top: 35px;"></div>
+<div class="select-movie">
+    <div class="ticket">
+        <img src="https://cinestar.com.vn/catalog/view/theme/default/images/icon-ticket.png" alt="" class="img-ticket">
+        <h2>Mua vé <br> online</h2>
+    </div>
+    <div class="all-select">
+        <div class="select">
+            <select class="select-flim">
+                <option value="">Chọn phim</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+            </select>
+            <select class="select-date">
+                <option value="">Chọn ngày</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+            </select>
+        </div>
+
+        <div class="select">
+            <select class="select-cinema">
+                <option value="">Chọn rạp</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+            </select>
+            <select class="select-time">
+                <option value="">Chọn suất chiếu</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+                <option value="">Tà chú cấm</option>
+            </select>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
